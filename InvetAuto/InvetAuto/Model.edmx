@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище InventAutoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "InventAuto.dbo.Employees_Report" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Employees_Report">
+          <Property Name="Название отдела" Type="char" MaxLength="100" />
+          <Property Name="Кабинет" Type="char" MaxLength="3" />
+          <Property Name="Руководитель отдела" Type="char" MaxLength="100" />
+          <Property Name="Идентификатор рабочего места" Type="char" MaxLength="7" />
+          <Property Name="Фамилия" Type="char" MaxLength="35" />
+          <Property Name="Имя" Type="char" MaxLength="35" />
+          <Property Name="Отчество" Type="char" MaxLength="35" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "InventAuto.dbo.Inventory_Report" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Inventory_Report">
+          <Key>
+            <PropertyRef Name="Наименование" />
+            <PropertyRef Name="Категория" />
+          </Key>
+          <Property Name="Наименование" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Категория" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Стоимость" Type="char" MaxLength="7" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "InventAuto.dbo.Missing_Report" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Missing_Report">
+          <Property Name="Название отдела" Type="char" MaxLength="100" />
+          <Property Name="Кабинет" Type="char" MaxLength="3" />
+          <Property Name="Руководитель отдела" Type="char" MaxLength="100" />
+          <Property Name="Идентификатор рабочего места" Type="char" MaxLength="7" />
+          <Property Name="Фамилия" Type="char" MaxLength="35" />
+          <Property Name="Имя" Type="char" MaxLength="35" />
+          <Property Name="Отчество" Type="char" MaxLength="35" />
+          <Property Name="Дата отчета" Type="char" MaxLength="10" />
+          <Property Name="Инвентаризационный номер" Type="char" MaxLength="15" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "InventAuto.dbo.Present_Report" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Present_Report">
+          <Property Name="Название отдела" Type="char" MaxLength="100" />
+          <Property Name="Кабинет" Type="char" MaxLength="3" />
+          <Property Name="Руководитель отдела" Type="char" MaxLength="100" />
+          <Property Name="Идентификатор рабочего места" Type="char" MaxLength="7" />
+          <Property Name="Фамилия" Type="char" MaxLength="35" />
+          <Property Name="Имя" Type="char" MaxLength="35" />
+          <Property Name="Отчество" Type="char" MaxLength="35" />
+          <Property Name="Дата отчета" Type="char" MaxLength="10" />
+          <Property Name="Инвентаризационный номер" Type="char" MaxLength="15" />
+        </EntityType>-->
+        <EntityContainer Name="Хранилище InventAutoModelContainer">
+          <EntitySet Name="Inventory_Report" EntityType="Self.Inventory_Report" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Inventory_Report].[Наименование] AS [Наименование], 
+    [Inventory_Report].[Категория] AS [Категория], 
+    [Inventory_Report].[Стоимость] AS [Стоимость]
+    FROM [dbo].[Inventory_Report] AS [Inventory_Report]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventAutoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Inventory_Report">
+          <Key>
+            <PropertyRef Name="Наименование" />
+            <PropertyRef Name="Категория" />
+          </Key>
+          <Property Name="Наименование" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Категория" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Стоимость" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="InventAutoEntities_1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Inventory_Report" EntityType="Self.Inventory_Report" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InventAutoModelContainer" CdmEntityContainer="InventAutoEntities_1">
+          <EntitySetMapping Name="Inventory_Report">
+            <EntityTypeMapping TypeName="InventAutoModel.Inventory_Report">
+              <MappingFragment StoreEntitySet="Inventory_Report">
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Категория" ColumnName="Категория" />
+                <ScalarProperty Name="Стоимость" ColumnName="Стоимость" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище InventAutoModelContainer" CdmEntityContainer="InventAutoEntities_1">
+    <EntitySetMapping Name="Inventory_Report">
+      <EntityTypeMapping TypeName="InventAutoModel.Inventory_Report">
+        <MappingFragment StoreEntitySet="Inventory_Report">
+          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+          <ScalarProperty Name="Категория" ColumnName="Категория" />
+          <ScalarProperty Name="Стоимость" ColumnName="Стоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

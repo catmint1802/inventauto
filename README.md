@@ -1,0 +1,2 @@
+# inventauto
+Software "InventAuto". WindowsPart
